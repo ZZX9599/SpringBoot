@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>标准变量表达式</title>
+</head>
+<body>
+    <h3>标准变量表达式</h3>
+    <div>
+        <p th:text="${myData01}">未成功！</p>
+
+        <!--获取学生信息-->
+        <p th:text="${data01.getId()}">id</p>
+        <p th:text="${data01.getName()}">name</p>
+        <p th:text="${data01.getSex()}">sex</p>
+        <p th:text="${data01.getAge()}">age</p>
+    </div>
+</body>
+</html>

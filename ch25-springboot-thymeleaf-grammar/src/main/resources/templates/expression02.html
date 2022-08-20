@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>选择变量表达式</title>
+</head>
+<body>
+    <h3>选择变量表达式</h3>
+    <div>
+        <p th:text="${myData02}">未成功！</p>
+
+        <!--获取学生信息-->
+        <!--使用*{key}来获取属性-->
+        <div th:object="${data02}">
+            <p th:text="*{id}">id</p>
+            <p th:text="*{name}">name</p>
+            <p th:text="*{sex}">sex</p>
+            <p th:text="*{age}">age</p>
+        </div>
+        <p th:text="*{data02.getAge()}"></p>
+    </div>
+</body>
+</html>

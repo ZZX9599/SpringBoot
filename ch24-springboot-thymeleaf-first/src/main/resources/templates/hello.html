@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>hello.html</title>
+</head>
+<body>
+    <h3>使用Thymeleaf模板</h3>
+    <!--会使用data来取代标签文本-->
+    <!--经过服务端处理的话，会正确显示数据-->
+    <!--如果没有经过服务端，就正常显示数据，不会显示controller数据-->
+    <p th:text="${data}">
+</body>
+</html>

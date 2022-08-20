@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>链接表达式</title>
+</head>
+<body>
+    <h3>链接表达式</h3>
+    <div>
+        <h3>链接绝对地址</h3>
+        <a th:href="@{http://www.baidu.com}">链接到百度</a>
+        <h3>链接相对地址，无参数</h3>
+        <a th:href="@{/temp/query/account01}">没有参数</a>
+        <h3>链接相对地址，带参数</h3>
+        <a th:href="@{'/temp/query/account01?id='+${userId}}">传递单个参数</a>
+        <a th:href="@{'/temp/query/account02?id='+${userId}+'&name='+${userName}}">传递多个参数</a>
+        <h3>推荐使用的传递参数方式</h3>
+        <!--传递单个参数-->
+        <a th:href="@{/temp/query/account01(id=${userId})}">传递单个参数</a>
+        <!--传递多个参数-->
+        <a th:href="@{/temp/query/account02(name=${userName},id=${userId})}">传递多个参数</a>
+    </div>
+</body>
+</html>

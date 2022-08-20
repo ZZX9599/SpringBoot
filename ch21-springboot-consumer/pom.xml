@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.zzx</groupId>
+    <artifactId>ch21-springboot-consumer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>ch21-springboot-consumer</name>
+    <description>ch21-springboot-consumer</description>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+    <!--加入公共项目的gav-->
+    <!--
+    groupId：定义当前Maven组织名称
+    artifactId：定义实际项目名称
+    version：定义当前项目的当前版本
+    -->
+    <dependency>
+        <groupId>com.zzx</groupId>
+        <artifactId>ch19-interface-api</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+
+    <!--加入dubbo依赖-->
+    <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-spring-boot-starter</artifactId>
+        <version>2.7.8</version>
+    </dependency>
+
+    <!--加入zookeeper依赖，zookeeper注册中心-->
+    <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-dependencies-zookeeper</artifactId>
+        <version>2.7.8</version>
+        <type>pom</type>
+        <exclusions>
+            <exclusion>
+                <artifactId>slf4j-log4j12</artifactId>
+                <groupId>org.slf4j</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

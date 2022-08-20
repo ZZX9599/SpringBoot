@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>属性应用</title>
+    <script type="text/javascript">
+        function btnClick(){
+            alert("按钮点击");
+        }
+    </script>
+</head>
+<body>
+    <div style="margin-left: 500px">
+        <h3>属性的使用，在html的元素属性上加入th</h3>
+        <form th:action="@{/loginServlet}" th:method="${method}">
+            <input type="text" th:name="${key}" th:value="${value}"/>
+            <input th:type="${skey}" th:value="${svalue}" onclick="btnClick()"/>
+        </form>
+    </div>
+</body>
+</html>

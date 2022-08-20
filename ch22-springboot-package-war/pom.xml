@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.zzx</groupId>
+    <artifactId>ch22-springboot-package-war</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <!--打包类型-->
+    <packaging>war</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <!--加入处理jsp的依赖-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+        <!--servlet,jsp,jstl依赖-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!--配置打包后的文件-->
+        <!--打包文件名-->
+        <finalName>myBoot</finalName>
+        <!--打包类型-->
+        <!--打包类型在上面-->
+
+
+        <!--配置文件编译后的位置-->
+        <resources>
+            <!--配置jsp的编译目录-->
+            <resource>
+                <!--目标文件-->
+                <directory>src/main/webapp</directory>
+                <!--编译后的位置，默认就是classes目录下-->
+                <targetPath>META-INF/resources</targetPath>
+                <!--指定处理的目录-->
+                <includes>
+                    <!--表示上面存放目录的目录和任意子目录-->
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+
+            <!--配置mapper文件的位置-->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <!--包括的文件-->
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+
+            <!--把src/main/resources的所有文件都包含到类路径-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
